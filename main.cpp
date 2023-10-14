@@ -1,27 +1,58 @@
-#include <allegro.h> // Incluimos la biblioteca allegro
+#include <allegro.h>
+#include <iostream>
+#include <stdlib.h>
+#include <conio.h>
 
-int x = 50; // Utilizaremos la variable entero x para manejar la posición del "monigote" sobre el eje X del BITMAP donde nos "moveremos", la inicializamos a 50
-int y = 50; // Utilizaremos la variable entero y para manejar la posición del "monigote" sobre el eje Y del BITMAP donde nos "moveremos", la inicializamos a 50
-BITMAP* monigote; // Declaramos el BITMAP monigote donde cargaremos la imagen de nuestro protagonista
-PALETTE paleta; // Declaramos el PALETTE paleta la cual administrará los colores de la imagen que carguemos
+using namespace std;
 
-int main(){
-allegro_init(); // Macro que inicia la biblioteca Allegro
-install_keyboard(); // Instala el controlador de intrucciones de teclado Allegro, ya no podemos usar llamadas al sistema ni funciones de librería de C para acceder al teclado hasta que no lo desinstalemos de nuevo
-set_gfx_mode(GFX_AUTODETECT_WINDOWED, 640, 480, 0 ,0); // Cambia a modo gráfico indicando el tamaño de éste y el mínimo permitido. 640 x 480 es el máximo de pantalla visible, de ahí a 1024 x 1024 es el máximo de memoria de vídeo
-bmp = load_bitmap("dirección del monigote".bmp", paleta); //cargarmos en nuestro puntero monigote una imagen prediseñada en formato .bmp que hayamos creado, utiliza la configuración de colores de la paletta
+int pos=1;
+int x=60, y=365;
 
-while( !key[KEY_ESC]) {
-clear_keybuf(); // Borra el buffer del teclado
-acquire_screen(); // Bloquea screen antes de dibujar en él, screen es el BITMAP por donde nos moveremos
-clear(screen); // Borramos screen despues de movernos para dar la impresión de desplazamiento
-if(key[KEY_UP]) y-=10;
-else if (key[KEY_LEFT]) x-=10;
-else if (key[KEY_RIGHT]) x+=10;
-else if (key[KEY_DOWN]) y+=10;
-blit(monigote, screen, 0, 0, x, y, 100, 100); // Dibujamos el BITMAP en el BITMAP destino (screen en este caso) y pasamos los valores del tamaño
-release_screen(); // Libera el BITMAP bloqueado
-rest(50);
-} // Mientras no pulsemos la tecla ESC seguirá ejecutándose el while, vamos cambiando los valores de x e y según la tecla que pulsemos(UP, LEFT, RIGHT, DOWN)
+BITMAP *buffer;
+BITMAP *pd;
+BITMAP *pi;
+
+class muneco{
+
+private:
+
+public:
+
+};
+
+int main ()
+{
+    allegro_init();
+    install_keyboard();
+
+    set_color_depth(32);
+    set_gfx_mode(GFX_AUTODETECT_WINDOWED, 1300,450,0,0);
+
+    buffer=create_bitmap(1300,450);
+    pd=load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\PD.bmp", NULL);
+    pi=load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\PI.bmp", NULL);
+    while(true){
+    switch(pos){
+case 1:
+    blit(pd,screen, 0, 0, x, y, 38, 54);
+    rest(120);
+    blit(buffer, screen, 0, 0, 0, 0, 1300, 450);
+    break;
+case 2:
+    blit(pi,screen, 0, 0, x, y, 38, 54);
+    rest(120);
+    blit(buffer, screen, 0, 0, 0, 0, 1300, 450);
+    break;
+    }
+if (key[KEY_RIGHT]){
+    pos=1;
 }
-END_OF_MAIN();
+if (key[KEY_LEFT]){
+    pos=2;
+}
+    }
+    return 0;
+}
+END_OF_MAIN ()
+
+

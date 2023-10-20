@@ -31,6 +31,21 @@ private:
     BITMAP *pi5 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Caminata\\Izquierda\\Caminar5.bmp", NULL);
     BITMAP *pi6 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Caminata\\Izquierda\\Caminar6.bmp", NULL);
 
+    //Movimiento del personaje con salto hacia la derecha
+    BITMAP *psd1 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Derecha\\Salto0.bmp", NULL);
+    BITMAP *psd2 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Derecha\\Salto1.bmp", NULL);
+    BITMAP *psd3 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Derecha\\Salto2.bmp", NULL);
+    BITMAP *psd4 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Derecha\\Salto3.bmp", NULL);
+    BITMAP *psd5 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Derecha\\Salto4.bmp", NULL);
+    BITMAP *psd6 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Derecha\\Salto5.bmp", NULL);
+
+    //Movimiento del personaje con salto hacia la izquierda
+    BITMAP *psi1 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Izquierda\\Salto0.bmp", NULL);
+    BITMAP *psi2 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Izquierda\\Salto1.bmp", NULL);
+    BITMAP *psi3 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Izquierda\\Salto2.bmp", NULL);
+    BITMAP *psi4 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Izquierda\\Salto3.bmp", NULL);
+    BITMAP *psi5 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Izquierda\\Salto4.bmp", NULL);
+    BITMAP *psi6 = load_bitmap("C:\\Users\\Omar Z\\Documents\\GitHub\\Combate-Mortal\\Personajes\\LARA\\Salto\\Izquierda\\Salto5.bmp", NULL);
 
 
 public:
@@ -80,7 +95,7 @@ public:
         }
     }
 }
-void caminarI(){
+    void caminarI(){
     blit(buffer, screen, 0, 0, 0, 0, 1300, 450);
     if(key[KEY_LEFT])
     {
@@ -126,7 +141,250 @@ void caminarI(){
     }
 
     }
+    void saltarD(){
+        blit(buffer,screen, 0, 0, 0, 0, 1300, 450);
+        int j=0;
+        if(key[KEY_UP]){
+            if(key[KEY_RIGHT]) j+=25;
 
+            blit(psd1, screen,0,0,x+j,y-20,38,54);
+            rest(120);
+            blit(buffer, screen,0,0,0,0,1300,450);
+            if(key[KEY_UP])
+            {
+                if(key[KEY_RIGHT]) j+=25;
+                y-=20;
+                blit(psd2, screen,0,0,x+j,y-20,38,54);
+                rest(120);
+                blit(buffer, screen,0,0,0,0,1300,450);
+                if(key[KEY_UP]){
+                    if(key[KEY_RIGHT]) j+=25;
+                    y-=20;
+                    blit(psd3, screen,0,0,x+j,y-20,38,54);
+                    rest(120);
+                    blit(buffer, screen,0,0,0,0,1300,450);
+                    if(key[KEY_UP]){
+                        if(key[KEY_RIGHT]) j+=25;
+                        y-=20;
+                        blit(psd4, screen,0,0,x+j,y-20,38,54);
+                        rest(120);
+                        blit(buffer, screen,0,0,0,0,1300,450);
+                        if(key[KEY_UP]){
+                            if(key[KEY_RIGHT]) j+=25;
+                            y+=20;
+                            blit(psd5, screen,0,0,x+j,y-20,38,54);
+                            rest(120);
+                            blit(buffer, screen,0,0,0,0,1300,450);
+                            if(key[KEY_UP]){
+                                if(key[KEY_RIGHT]) j+=25;
+                                y+=20;
+                                blit(psd6, screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+                            else{
+                                if(key[KEY_RIGHT]) j+=25;
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psd3,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psd2,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psd1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+                        }
+                        else{
+                                if(key[KEY_RIGHT]) j+=25;
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psd3,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psd2,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                blit(psd1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+                    }
+                else{
+                                if(key[KEY_RIGHT]) j+=25;
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psd2,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                blit(psd1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+                }
+                else{
+                                if(key[KEY_RIGHT]) j+=25;
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psd1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+
+          }
+         else{
+                                if(key[KEY_RIGHT]) j+=25;
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psd1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+        }
+
+        x=x+j;
+        y=345;
+        }
+    void saltarI(){
+        blit(buffer,screen, 0, 0, 0, 0, 1300, 450);
+        int j=0;
+        if(key[KEY_UP]){
+            if(key[KEY_LEFT]) j-=25;
+
+            blit(psi1, screen,0,0,x+j,y-20,38,54);
+            rest(120);
+            blit(buffer, screen,0,0,0,0,1300,450);
+            if(key[KEY_UP])
+            {
+                if(key[KEY_LEFT]) j-=25;
+                y-=20;
+                blit(psi2, screen,0,0,x+j,y-20,38,54);
+                rest(120);
+                blit(buffer, screen,0,0,0,0,1300,450);
+                if(key[KEY_UP]){
+                    if(key[KEY_LEFT]) j-=25;
+                    y-=20;
+                    blit(psi3, screen,0,0,x+j,y-20,38,54);
+                    rest(120);
+                    blit(buffer, screen,0,0,0,0,1300,450);
+                    if(key[KEY_UP]){
+                        if(key[KEY_LEFT]) j-=25;
+                        y-=20;
+                        blit(psi4, screen,0,0,x+j,y-20,38,54);
+                        rest(120);
+                        blit(buffer, screen,0,0,0,0,1300,450);
+                        if(key[KEY_UP]){
+                            if(key[KEY_LEFT]) j-=25;
+                            y+=20;
+                            blit(psi5, screen,0,0,x+j,y-20,38,54);
+                            rest(120);
+                            blit(buffer, screen,0,0,0,0,1300,450);
+                            if(key[KEY_UP]){
+                                if(key[KEY_LEFT]) j-=25;
+                                y+=20;
+                                blit(psi6, screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+                            else{
+                                if(key[KEY_LEFT]) j-=25;
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psi3,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psi2,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psi1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+                        }
+                        else{
+                                if(key[KEY_LEFT]) j+=25;
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psi3,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psi2,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                blit(psi1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+                    }
+                else{
+                                if(key[KEY_LEFT]) j+=25;
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psi2,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                blit(psi1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+                }
+                else{
+                                if(key[KEY_LEFT]) j+=25;
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psi1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+
+          }
+         else{
+                                if(key[KEY_LEFT]) j+=25;
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                                y+=20;
+                                blit(psi1,screen,0,0,x+j,y-20,38,54);
+                                rest(120);
+
+                                blit(buffer, screen,0,0,0,0,1300,450);
+                            }
+        }
+
+        x=x+j;
+        y=345;
+        }
 };
 
 int main ()
@@ -163,6 +421,13 @@ if (key[KEY_LEFT]){
     pos=2;
     p1.caminarI();
 }
+if (key[KEY_UP]&&pos==1){
+        p1.saltarD();
+}
+if (key[KEY_UP]&&pos==2){
+        p1.saltarI();
+}
+
     }
     return 0;
 }

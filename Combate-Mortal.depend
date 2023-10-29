@@ -1,5 +1,11 @@
 # depslib dependency file v1.0
-1698374986 source:c:\users\omar z\documents\github\combate-mortal\main.cpp
+1698456985 source:c:\users\omar z\documents\github\combate-mortal\main.cpp
+	<allegro.h>
+	<iostream>
+	<stdlib.h>
+	<conio.h>
+
+1698457358 source:c:\users\omar z\documents\github\combate-mortal\src\personajes\personajes.hpp
 	<allegro.h>
 	<iostream>
 	<stdlib.h>

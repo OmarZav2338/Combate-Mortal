@@ -33,6 +33,11 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Personajes/Lara.cpp" />
+		<Unit filename="src/Personajes/Personajes.hpp">
+			<Option compile="1" />
+			<Option link="1" />
+		</Unit>
 		<Extensions>
 			<code_completion />
 			<envvars />
